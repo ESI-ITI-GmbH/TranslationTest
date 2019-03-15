@@ -1,0 +1,360 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-15 10:52+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: TranslationTest.mo:66 TranslationTest.mo:89
+msgctxt "TranslationTest.CSVFile"
+msgid "\t"
+msgstr ""
+
+#: TranslationTest.mo:64 TranslationTest.mo:89
+msgctxt "TranslationTest.CSVFile"
+msgid " "
+msgstr ""
+
+#: TranslationTest.mo:68 TranslationTest.mo:69
+msgctxt "TranslationTest.CSVFile"
+msgid "\""
+msgstr ""
+
+#: TranslationTest.mo:90
+msgctxt "TranslationTest.CSVFile"
+msgid "%name"
+msgstr ""
+
+#: TranslationTest.mo:70
+msgctxt "TranslationTest.CSVFile"
+msgid "'"
+msgstr ""
+
+#: TranslationTest.mo:63 TranslationTest.mo:65 TranslationTest.mo:89
+msgctxt "TranslationTest.CSVFile"
+msgid ","
+msgstr ""
+
+#: TranslationTest.mo:103
+msgctxt "TranslationTest"
+msgid "1.0.0-beta.2"
+msgstr ""
+
+#: TranslationTest.mo:103
+msgctxt "TranslationTest"
+msgid "3.2.3"
+msgstr ""
+
+#: TranslationTest.mo:67 TranslationTest.mo:89
+msgctxt "TranslationTest.CSVFile"
+msgid ";"
+msgstr ""
+
+#: TranslationTest.mo:44
+msgctxt "TranslationTest.UsersGuide.License"
+msgid ""
+"<html>\n"
+"  <p>Copyright (C) 2018-2019, ESI ITI GmbH<br>All rights reserved.</p>\n"
+"  <p>Redistribution and use in source and binary forms, with or without "
+"modification, are permitted provided that the following conditions are met:</"
+"p>\n"
+"    <p>1. Redistributions of source code must retain the above copyright "
+"notice, this list of conditions and the following disclaimer.</p>\n"
+"    <p>2. Redistributions in binary form must reproduce the above copyright "
+"notice, this list of conditions and the following disclaimer in the "
+"documentation and/or other materials provided with the distribution.</"
+"p><p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "
+"\"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED "
+"TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR "
+"PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR "
+"CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, "
+"EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, "
+"PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; "
+"OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, "
+"WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR "
+"OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF "
+"ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>\n"
+"</html>"
+msgstr ""
+
+#: TranslationTest.mo:105
+msgctxt "TranslationTest"
+msgid ""
+"<html>\n"
+"<p>This is a Modelica library only created for <a href=\"https://www.gnu.org/"
+"software/gettext/manual/gettext.html\">gettext</a> evaluation as proof of "
+"concept for the Modelica specification issue <a href=\"https://github.com/"
+"modelica/ModelicaSpecification/issues/302\">#302</a>.</p>\n"
+"<p>The POT file <a href=\"modelica://TranslationTest/Resources/Language/"
+"TranslationTest.pot\">TranslationTest.pot</a> (Portable Object Template) was "
+"created by the command<p>\n"
+"<p><code>xgettext --language=EmacsLisp --sort-output --extract-all --from-"
+"code=UTF-8 --output=TranslationTest.pot TranslationTest.mo</code></p>\n"
+"<p>The TranslationTest.pot file serves as translation template and contains "
+"the extracted original strings as <em>msgid</em> together with an empty "
+"string <em>msgstr</em>, for example</p>\n"
+"<blockquote><pre>\n"
+"#: TranslationTest.mo:34\n"
+"msgid \"Contact info\"\n"
+"msgstr \"\"\n"
+"</pre></blockquote>\n"
+"<p>Afterwards, the required <em>msgctxt</em> field was manually added for "
+"each recognized string, for example</p>\n"
+"<blockquote><pre>\n"
+"#: TranslationTest.mo:34\n"
+"msgctxt \"TranslationTest.UsersGuide.Contact\"\n"
+"msgid \"Contact info\"\n"
+"msgstr \"\"\n"
+"</pre></blockquote>\n"
+"<p>Certainly, the string extraction based on the EmacsLisp language can only "
+"be considered as proof of concept, since there is no Modelica language "
+"available in xgettext. It is recommended to create the POT file directly "
+"from the Modelica tool, like e.g., demonstrated by Wolfram SystemModeler.</"
+"p>\n"
+"<p>The PO file <a href=\"modelica://TranslationTest/Resources/Language/"
+"TranslationTest.de.po\">TranslationTest.de.po</a> (Portable Object) was "
+"created in <a href=\"https://poedit.net/\">Poedit</a>, but could also be "
+"created using the gettext tools by command</p>\n"
+"<p><code>msginit --input=TranslationTest.pot --locale=de_DE --"
+"output=TranslationTest.de.po</code></p>\n"
+"<p>These PO files can be created for any supported language. It is highly "
+"recommended that these PO files are stored as UTF-8 and that this is "
+"respected by <code>charset=UTF-8</code> in the meta information of the file."
+"</p>\n"
+"<p>The actual translation work was done in Poedit again.</p>\n"
+"<p>If the original Modelica file TranslationTest.mo changes, the translation "
+"process needs to be iterated again, by creating an updated TranslationTest."
+"pot and merging it with the already available translation files by command</"
+"p>\n"
+"<p><code>msgmerge --update TranslationTest.de.po TranslationTest.pot</code></"
+"p>\n"
+"<p>The freely available C++ library <a href=\"https://github.com/cbeck88/"
+"spirit-po\">spirit-po</a> was used as PO file reader in SimulationX. It "
+"supports UTF-8 encoded files only and is available under the BSL 1.0, a "
+"permissive OSI approved license.</p>\n"
+"</html>"
+msgstr ""
+
+#: TranslationTest.mo:103
+msgctxt "TranslationTest"
+msgid ""
+"<html>\n"
+"<p>v1.0.0 - March 2019</p>\n"
+"</html>"
+msgstr ""
+
+#: TranslationTest.mo:52
+msgctxt "TranslationTest.UsersGuide"
+msgid ""
+"<html><p>Library <strong>TranslationTest</strong> is a test library for <a href="
+"\"https://www.gnu.org/software/gettext/manual/gettext.html\">gettext</a>.</"
+"p></html>"
+msgstr ""
+
+#: TranslationTest.mo:40
+msgctxt "TranslationTest.UsersGuide.References"
+msgid ""
+"<html><p>See <a href=\"https://simulationx.com\">here</a>&nbsp;-&nbsp;"
+"SimulationX</ul></html>"
+msgstr ""
+
+#: TranslationTest.mo:83
+msgctxt "TranslationTest.CSVFile"
+msgid "<html><p>Test model.</p></html>"
+msgstr ""
+
+#: TranslationTest.mo:36
+msgctxt "TranslationTest.UsersGuide.Contact"
+msgid "<html><p>This TranslationTest library is created at ESI ITI GmbH.</p></html>"
+msgstr ""
+
+#: TranslationTest.mo:42
+msgctxt "TranslationTest.UsersGuide.License"
+msgid "BSD-3-License - aka as \"Simplified\" BSD License"
+msgstr ""
+
+#: TranslationTest.mo:64
+msgctxt "TranslationTest.CSVFile"
+msgid "Blank"
+msgstr ""
+
+#: TranslationTest.mo:63
+msgctxt "TranslationTest.CSVFile"
+msgid "Column delimiter character"
+msgstr ""
+
+#: TranslationTest.mo:65
+msgctxt "TranslationTest.CSVFile"
+msgid "Comma"
+msgstr ""
+
+#: TranslationTest.mo:61
+msgctxt "TranslationTest.CSVFile"
+msgid "Comma-separated values files (*.csv);;Text files (*.txt)"
+msgstr ""
+
+#: TranslationTest.mo:95
+msgctxt "TranslationTest.SpecialFile"
+msgid "Component comment"
+msgstr ""
+
+#: TranslationTest.mo:73 TranslationTest.mo:80
+msgctxt "TranslationTest.CSVFile"
+msgid "Contact"
+msgstr ""
+
+#: TranslationTest.mo:98
+msgctxt "TranslationTest.TestContainer"
+msgid "Contact"
+msgstr ""
+
+#: TranslationTest.mo:34
+msgctxt "TranslationTest.UsersGuide.Contact"
+msgid "Contact info"
+msgstr ""
+
+#: TranslationTest.mo:69
+msgctxt "TranslationTest.CSVFile"
+msgid "Double quotation mark"
+msgstr ""
+
+#: TranslationTest.mo:76
+msgctxt "TranslationTest.CSVFile"
+msgid "Equation description"
+msgstr ""
+
+#: TranslationTest.mo:60
+msgctxt "TranslationTest.CSVFile"
+msgid "File settings"
+msgstr ""
+
+#: TranslationTest.mo:56
+msgctxt "TranslationTest.CSVFile"
+msgid "File where my test data is stored"
+msgstr ""
+
+#: TranslationTest.mo:66
+msgctxt "TranslationTest.CSVFile"
+msgid "Horizontal tabulator"
+msgstr ""
+
+#: TranslationTest.mo:28
+msgctxt "TranslationTest"
+msgid ""
+"Modelica library for\n"
+"gettext evaluation"
+msgstr ""
+
+#: TranslationTest.mo:86
+msgctxt "TranslationTest.CSVFile"
+msgid ""
+"No \"csvfile\" component is defined, please drag TranslationTest.CSVFile to the model "
+"top level"
+msgstr ""
+
+#: TranslationTest.mo:62
+msgctxt "TranslationTest.CSVFile"
+msgid "Open file"
+msgstr ""
+
+#: TranslationTest.mo:59
+msgctxt "TranslationTest.CSVFile"
+msgid "Parameters"
+msgstr ""
+
+#: TranslationTest.mo:68
+msgctxt "TranslationTest.CSVFile"
+msgid "Quotation character"
+msgstr ""
+
+#: TranslationTest.mo:55
+msgctxt "TranslationTest.CSVFile"
+msgid "Read data values from CSV file"
+msgstr ""
+
+#: TranslationTest.mo:38
+msgctxt "TranslationTest.UsersGuide.References"
+msgid "References - with Hebrew characters: עִבְרִית"
+msgstr ""
+
+#: TranslationTest.mo:67
+msgctxt "TranslationTest.CSVFile"
+msgid "Semicolon"
+msgstr ""
+
+#: TranslationTest.mo:70
+msgctxt "TranslationTest.CSVFile"
+msgid "Single quotation mark"
+msgstr ""
+
+#: TranslationTest.mo:87
+msgctxt "TranslationTest.CSVFile"
+msgid "This model is of no use at all"
+msgstr ""
+
+#: TranslationTest.mo:30
+msgctxt "TranslationTest.UsersGuide"
+msgid ""
+"User's Guide - This is a description\n"
+"  with line\n"
+"     breaks and leading spaces ignored by Dymola"
+msgstr ""
+
+#: TranslationTest.mo:81
+msgctxt "TranslationTest.CSVFile"
+msgid "c = "
+msgstr ""
+
+#: TranslationTest.mo:89
+msgctxt "TranslationTest.CSVFile"
+msgid "c s v"
+msgstr ""
+
+#: TranslationTest.mo:89
+msgctxt "TranslationTest.CSVFile"
+msgid "c,s,v"
+msgstr ""
+
+#: TranslationTest.mo:89
+msgctxt "TranslationTest.CSVFile"
+msgid "c;s;v"
+msgstr ""
+
+#: TranslationTest.mo:89
+msgctxt "TranslationTest.CSVFile"
+msgid "c\\ts\\tv"
+msgstr ""
+
+#: TranslationTest.mo:89
+msgctxt "TranslationTest.CSVFile"
+msgid "csv"
+msgstr ""
+
+#: TranslationTest.mo:56 TranslationTest.mo:84
+msgctxt "TranslationTest.CSVFile"
+msgid "csvfile"
+msgstr ""
+
+#: TranslationTest.mo:85
+msgctxt "TranslationTest.CSVFile"
+msgid "inner"
+msgstr ""
+
+#: TranslationTest.mo:58
+msgctxt "TranslationTest.CSVFile"
+msgid ""
+"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/M_Transformer-"
+"eq.png"
+msgstr ""
