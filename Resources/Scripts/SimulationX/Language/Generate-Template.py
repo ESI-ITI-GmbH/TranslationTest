@@ -29,7 +29,7 @@ class SimXPackage(object):
         self._items = []
         self._annotations = frozenset(['Documentation.info', 'Documentation.revisions', 'obsolete', 'missingInnerMessage', 'unassignedMessage'])
 
-        dispatch = 'ESI.SimulationX40'
+        dispatch = 'ESI.SimulationX41'
 
         try:
             # Open SimulationX
