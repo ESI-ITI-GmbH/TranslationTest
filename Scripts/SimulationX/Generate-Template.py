@@ -27,7 +27,7 @@ class SimXPackage(object):
         self._sim = None  # SimulationX application
         self._package_name = package_name
         self._items = []
-        self._annotations = frozenset(['Documentation.info', 'Documentation.revisions', 'obsolete', 'missingInnerMessage', 'unassignedMessage'])
+        self._annotations = frozenset(['Documentation.info', 'Documentation.revisions', 'obsolete', 'missingInnerMessage', 'unassignedMessage','Dialog.tab','Dialog.group'])
 
         dispatch = 'ESI.SimulationX41'
 
@@ -85,13 +85,17 @@ class SimXPackage(object):
             self._items.append((scope, description))
 
         if pObject.Kind == simType:
+            scope = pObject.Ident
+
+        for annotation in self._annotations:
+            anno_value = pObject.Execute('GetAnnotation', [annotation])
+            if anno_value and anno_value[0]:
+                self._items.append((scope, anno_value[0].strip('"')))
+
+        if pObject.Kind == simType:
             for pChild in pObject.Children:
                 logging.debug(pChild.Ident)
                 self._fill_data(pChild, pChild.Ident if pChild.Kind == simType else scope)
-            for annotation in self._annotations:
-                anno_value = pObject.Execute('GetAnnotation', [annotation])
-                if anno_value and anno_value[0]:
-                    self._items.append((scope, anno_value[0].strip('"')))
 
     def export_pot(self):
         header = r'''# SOME DESCRIPTIVE TITLE.
