@@ -52,9 +52,12 @@ class SimXPackage(object):
             # Load libraries
             if self._sim.InitState == simInitBase:
                 self._sim.InitSimEnvironment()
-
-            self._fill_data(self._sim.Lookup(package_name), package_name)
-
+            
+            pkg = self._sim.Lookup(package_name)
+            if pkg is not None:
+                self._fill_data(pkg, package_name)
+            else:
+                logging.error('Package ' + package_name + ' not found.')
         except pywintypes.com_error as error:
             logging.error('SimulationX: COM error.')
         except:
