@@ -4,7 +4,7 @@ Modelica library for gettext evaluation
 ## Library description
 This is a Modelica library only created for [gettext](https://www.gnu.org/software/gettext/manual/gettext.html) evaluation as proof of concept for the Modelica specification issue [#302](https://github.com/modelica/ModelicaSpecification/issues/302).
 
-The POT file [TranslationTest.pot](Resources/Language/TranslationTest.pot) (Portable Object Template) was created by the command
+The POT file [TranslationTest.pot](TranslationTest/Resources/Language/TranslationTest.pot) (Portable Object Template) was created by the command
 
 `xgettext --language=EmacsLisp --sort-output --extract-all --from-code=UTF-8 --output=TranslationTest.pot TranslationTest.mo`
 
@@ -23,7 +23,7 @@ Afterwards, the required _msgctxt_ field was manually added for each recognized 
 
 Certainly, the string extraction based on the EmacsLisp language can only be considered as proof of concept, since there is no Modelica language available in xgettext. It is recommended to create the POT file directly from the Modelica tool, like e.g., demonstrated by Wolfram SystemModeler.
 
-The PO file [TranslationTest.de.po](Resources/Language/TranslationTest.de.po) (Portable Object) was created in [Poedit](https://poedit.net/), but could also be created using the gettext tools by command
+The PO file [TranslationTest.de.po](TranslationTest/Resources/Language/TranslationTest.de.po) (Portable Object) was created in [Poedit](https://poedit.net/), but could also be created using the gettext tools by command
 
 `msginit --input=TranslationTest.pot --locale=de_DE --output=TranslationTest.de.po`
 
