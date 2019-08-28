@@ -36,7 +36,7 @@ class SimXPackage(object):
                                         'Dialog.group'
                                     ])
 
-        dispatch = 'ESI.SimulationX40'
+        dispatch = 'ESI.SimulationX41'
 
         try:
             # Open SimulationX
@@ -86,23 +86,30 @@ class SimXPackage(object):
         if self._sim is not None:
             self._sim.Interactive = True
 
-    def _fill_data(self, pObject, scope):
-        description = pObject.Comment
-        if (description):
-            self._items.append((scope, description))
+    def _to_translate(self, entity):
+        if entity.Kind == simType:
+            return not entity.TypeInfo.BuiltIn
+        return True
 
-        if pObject.Kind == simType:
-            scope = pObject.Ident
+    def _fill_data(self, entity, scope):
+        if self._to_translate(entity):  
+            description = entity.Comment
+            logging.debug(entity.Ident)
+            if (description):
+                self._items.append((scope, description))
 
-        for annotation in self._annotations:
-            anno_value = pObject.Execute('GetAnnotation', [annotation])
-            if anno_value and anno_value[0]:
-                self._items.append((scope, anno_value[0].strip('"')))
+        if entity.Kind == simType:
+            scope = entity.Ident
 
-        if pObject.Kind == simType:
-            for pChild in pObject.Children:
-                logging.debug(pChild.Ident)
-                self._fill_data(pChild, pChild.Ident if pChild.Kind == simType else scope)
+        if self._to_translate(entity):
+            for annotation in self._annotations:
+                anno_value = entity.Execute('GetAnnotation', [annotation])
+                if anno_value and anno_value[0]:
+                    self._items.append((scope, anno_value[0].strip('"')))
+
+        if entity.Kind == simType:
+            for child in entity.Children:
+                self._fill_data(child, child.Ident if child.Kind == simType else scope)
 
     def export_pot(self):
         header = r'''# SOME DESCRIPTIVE TITLE.
