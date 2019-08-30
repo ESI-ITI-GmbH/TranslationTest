@@ -35,15 +35,12 @@ class SimXPackage(object):
                                         'Dialog.tab',
                                         'Dialog.group'
                                     ])
-
-        dispatch = 'ESI.SimulationX41'
-
         try:
             # Open SimulationX
             try:
-                self._sim = GetActiveObject(dispatch)
+                self._sim = GetActiveObject(simulationx_appid)
             except:
-                self._sim = Dispatch(dispatch)
+                self._sim = Dispatch(simulationx_appid)
 
             # Show SimulationX window
             self._sim.Visible = True
@@ -112,12 +109,12 @@ class SimXPackage(object):
                 self._fill_data(child, child.Ident if child.Kind == simType else scope)
 
     def export_pot(self):
-        header = r'''# SOME DESCRIPTIVE TITLE.
+        if add_header:
+            header = r'''# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -131,8 +128,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 '''
-        now = datetime.datetime.utcnow()
-        content = [header.format(now.strftime("%Y-%m-%d %H:%M+0000"))]
+            now = datetime.datetime.utcnow()
+            content = [header.format(now.strftime("%Y-%m-%d %H:%M+0000"))]
+        else:
+            content=[]
+
         msg = '''
 msgctxt "{0}"
 msgid "{1}"
@@ -169,10 +169,19 @@ def main(package_name):
     thread.start()
     thread.join()
 
+simulationx_appid = 'esi.SimulationX41'
+add_header = True
+package_name = 'TranslationTest'
+
 if __name__ == '__main__':
-    if len(sys.argv) == 1:
-        package_name = 'TranslationTest'
-    elif len(sys.argv) > 1:
+
+    if len(sys.argv) > 3:
+        simulationx_appid = sys.argv[3]
+
+    if len(sys.argv) > 2:
+        add_header = (sys.argv[2].lower() == "true")
+
+    if len(sys.argv) > 1:
         package_name = sys.argv[1]
 
     main(package_name)
