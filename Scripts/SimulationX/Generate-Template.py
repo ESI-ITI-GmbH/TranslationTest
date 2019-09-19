@@ -145,7 +145,7 @@ msgctxt "{0}"
 msgid "{1}"
 msgstr ""
 '''
-        for ctxt, id in frozenset(self._items):
+        for ctxt, id in self._items:
             id = id.replace('\r\n', '\n')
             id = id.replace('\n', '\\n"\n"')
             content.append(msg.format(ctxt, id))
