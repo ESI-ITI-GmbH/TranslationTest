@@ -102,7 +102,10 @@ class SimXPackage(object):
             for annotation in self._annotations:
                 anno_value = entity.Execute('GetAnnotation', [annotation])
                 if anno_value and anno_value[0]:
-                    self._items.append((scope, anno_value[0].strip('"')))
+                    anno_string = anno_value[0]
+                    if anno_string.startswith('"') and anno_string.endswith('"'):  # value is string?
+                        anno_string = anno_string[1:-1] # remove Modelica string delimiter
+                    self._items.append((scope, anno_string))
 
         if entity.Kind == simType:
             for child in entity.Children:
@@ -169,7 +172,7 @@ def main(package_name):
     thread.start()
     thread.join()
 
-simulationx_appid = 'esi.SimulationX41'
+simulationx_appid = 'esi.simulationx41'
 add_header = True
 package_name = 'TranslationTest'
 
@@ -183,5 +186,10 @@ if __name__ == '__main__':
 
     if len(sys.argv) > 1:
         package_name = sys.argv[1]
+        main(package_name)
+    else:
+        print('Arguments needed')
+        print('Package name')
+        print('Add header or not: default is',add_header)
+        print('SimulationX Application ID: default is',simulationx_appid)
 
-    main(package_name)

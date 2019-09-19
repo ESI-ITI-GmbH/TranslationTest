@@ -95,9 +95,17 @@ gettext evaluation"
     parameter Real myElement = 1 "Component comment";
   end SpecialFile;
 
+  model QuotationMarksInAnnotation
+    parameter Real q annotation(Dialog(
+      group="I'm an annotation value with \"quotation marks\" in the middle",
+      tab="I'm an annotation value with trailing \"quotation mark\""
+    ));
+  end QuotationMarksInAnnotation;
+
   model TestContainer "Contact"
     CSVFile csv_file;
     SpecialFile special_file;
+    QuotationMarksInAnnotation quotation_marks;
   end TestContainer;
 
 annotation(version="1.0.0-beta.2", uses(Modelica(version="3.2.3")), Documentation(revisions="<html>
