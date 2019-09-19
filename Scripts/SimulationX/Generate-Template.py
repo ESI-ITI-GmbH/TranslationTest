@@ -34,10 +34,10 @@ class SimXPackage(object):
                                         'unassignedMessage',
                                         'Dialog.tab',
                                         'Dialog.group',
-                                        'loadSelector.filter',
-                                        'loadSelector.caption',
-                                        'saveSelector.filter',
-                                        'saveSelector.caption',
+                                        'Dialog.loadSelector.filter',
+                                        'Dialog.loadSelector.caption',
+                                        'Dialog.saveSelector.filter',
+                                        'Dialog.saveSelector.caption'
                                     ])
         try:
             # Open SimulationX
