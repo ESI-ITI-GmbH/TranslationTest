@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-Copyright (C) 2019, ESI ITI GmbH
+Copyright (C) 2019-2020, ESI ITI GmbH
 All rights reserved.
 
 Generate POT file for Modelica library localization:
@@ -27,18 +27,20 @@ class SimXPackage(object):
         self._sim = None  # SimulationX application
         self._package_name = package_name
         self._items = []
-        self._annotations = frozenset([ 'Documentation.info', 
-                                        'Documentation.revisions',
-                                        'obsolete',
-                                        'missingInnerMessage',
-                                        'unassignedMessage',
-                                        'Dialog.tab',
-                                        'Dialog.group',
-                                        'Dialog.loadSelector.filter',
-                                        'Dialog.loadSelector.caption',
-                                        'Dialog.saveSelector.filter',
-                                        'Dialog.saveSelector.caption'
-                                    ])
+        self._type_annotations = (
+            'Documentation.info',
+            'Documentation.revisions',
+            'obsolete',
+            'missingInnerMessage',
+            'unassignedMessage')
+        self._annotations = (
+            'Dialog.tab',
+            'Dialog.group',
+            'Dialog.loadSelector.filter',
+            'Dialog.loadSelector.caption',
+            'Dialog.saveSelector.filter',
+            'Dialog.saveSelector.caption')
+
         try:
             # Open SimulationX
             try:
@@ -60,7 +62,7 @@ class SimXPackage(object):
             # Load libraries
             if self._sim.InitState == simInitBase:
                 self._sim.InitSimEnvironment()
-            
+
             pkg = self._sim.Lookup(package_name)
             if pkg is not None:
                 self._fill_data(pkg, package_name)
@@ -92,24 +94,28 @@ class SimXPackage(object):
             return not entity.TypeInfo.BuiltIn
         return True
 
+    def _add_annotations(self, entity, scope, annotations):
+        for annotation in annotations:
+            anno_value = entity.Execute('GetAnnotation', [annotation])
+            if anno_value and anno_value[0]:
+                anno_string = anno_value[0]
+                if anno_string.startswith('"') and anno_string.endswith('"'):  # value is string?
+                    anno_string = anno_string[1:-1] # remove Modelica string delimiter
+                self._items.append((scope, anno_string))
+
     def _fill_data(self, entity, scope):
-        if self._to_translate(entity):  
+        if self._to_translate(entity):
             description = entity.Comment
             logging.debug(entity.Ident)
-            if (description):
+            if description:
                 self._items.append((scope, description))
 
         if entity.Kind == simType:
             scope = entity.Ident
+            self._add_annotations(entity, scope, self._type_annotations)
 
         if self._to_translate(entity):
-            for annotation in self._annotations:
-                anno_value = entity.Execute('GetAnnotation', [annotation])
-                if anno_value and anno_value[0]:
-                    anno_string = anno_value[0]
-                    if anno_string.startswith('"') and anno_string.endswith('"'):  # value is string?
-                        anno_string = anno_string[1:-1] # remove Modelica string delimiter
-                    self._items.append((scope, anno_string))
+            self._add_annotations(entity, scope, self._annotations)
 
         if entity.Kind == simType:
             for child in entity.Children:
@@ -196,4 +202,3 @@ if __name__ == '__main__':
         print('Package name')
         print('Add header or not: default is',add_header)
         print('SimulationX Application ID: default is',simulationx_appid)
-
