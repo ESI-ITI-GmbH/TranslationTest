@@ -105,7 +105,7 @@ class SimXPackage(object):
 
     def _fill_data(self, entity, scope):
         if self._to_translate(entity):
-            description = entity.Comment
+            description = entity.Comment.replace('"', '\\"')
             logging.debug(entity.Ident)
             if description:
                 self._items.append((scope, description))
@@ -182,7 +182,7 @@ def main(package_name):
     thread.start()
     thread.join()
 
-simulationx_appid = 'esi.simulationx41'
+simulationx_appid = 'esi.simulationx43'
 add_header = True
 package_name = 'TranslationTest'
 
